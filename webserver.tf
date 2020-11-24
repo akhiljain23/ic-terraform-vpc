@@ -9,12 +9,7 @@ resource "ibm_is_security_group_rule" "webserver_ingress_ssh_all" {
   group     = ibm_is_security_group.webserver.id
   direction = "inbound"
 
-  #remote    = "${var.remote}"
-
-  tcp {
-    port_min = 22
-    port_max = 22
-  }
+  remote    = "0.0.0.0/0"
 }
 
 # resource "ibm_is_security_group_rule" "webserver_egress_ssh_all" {
