@@ -25,7 +25,7 @@ resource "ibm_is_security_group_rule" "webserver_ingress_ssh_all" {
 
 resource "ibm_is_instance" "webserver" {
   count   = 2
-  name    = "${var.unique_id}--webserver-vsi"
+  name    = "${var.unique_id}-webserver-vsi-${count.index + 1}"
   image   = data.ibm_is_image.os.id
   profile = var.profile
 
